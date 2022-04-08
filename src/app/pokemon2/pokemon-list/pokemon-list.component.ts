@@ -12,7 +12,6 @@ export class PokemonListComponent implements OnInit {
 
   pokemonList: IPokemon[] = [];
   message: string = "";
-  addPokemon: boolean = false;
   showPokemonForm : boolean = false;
 
   currentPokemon?: IPokemon = undefined;

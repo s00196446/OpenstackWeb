@@ -20,7 +20,9 @@ export class PokemonFormComponent implements OnInit {
 
     this.pokemonForm = new FormGroup({
       Name: new FormControl(this.pokemon.Name,[Validators.required, Validators.minLength(3)]),
-      Type: new FormControl(this.pokemon.Type)
+      Type: new FormControl(this.pokemon.Type),
+      _id: new FormControl(this.pokemon._id),
+      Generation: new FormControl(this.pokemon.Generation)
     })
   }
 
@@ -36,6 +38,14 @@ export class PokemonFormComponent implements OnInit {
 
   get Type() {
     return this.pokemonForm?.get('Type');
+  }
+
+  get _id() {
+    return this.pokemonForm.get('_id')
+  }
+
+  get Generation() {
+    return this.pokemonForm.get('Generation')
   }
 
   closeForm() {
