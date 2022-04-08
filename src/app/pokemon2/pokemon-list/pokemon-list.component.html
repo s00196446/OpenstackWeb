@@ -1,0 +1,10 @@
+<p>pokemon-list works!</p>
+
+<h2 *ngIf="message">{{message}}</h2>
+
+ 
+<app-pokemon-row *ngFor="let b of pokemonList"
+    [book]="b"
+    (click)='clicked(b)'></app-pokemon-row>
+
+<app-pokemon-details *ngIf="currentPokemon" [book]="currentPokemon"> </app-pokemon-details>
