@@ -8,7 +8,7 @@ import { IPokemon } from 'src/app/pokemonmodel';
 })
 export class PokemonDetailsComponent implements OnInit {
 
-  @Input() pokemon : IPokemon;
+  @Input() pokemon? : IPokemon;
 
   constructor() { }
 

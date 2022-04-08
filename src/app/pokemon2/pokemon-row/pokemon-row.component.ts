@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IPokemon } from 'src/app/pokemonmodel';
 
 @Component({
   selector: 'app-pokemon-row',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-row.component.css']
 })
 export class PokemonRowComponent implements OnInit {
+
+  @Input() pokemon: IPokemon;
 
   constructor() { }
 

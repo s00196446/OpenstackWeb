@@ -1,10 +1,34 @@
-<p>pokemon-list works!</p>
+<div class="container-fluid">
 
-<h2 *ngIf="message">{{message}}</h2>
 
- 
-<app-pokemon-row *ngFor="let b of pokemonList"
-    [book]="b"
-    (click)='clicked(b)'></app-pokemon-row>
-
-<app-pokemon-details *ngIf="currentPokemon" [book]="currentPokemon"> </app-pokemon-details>
+    <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
+      <strong>Opps</strong> {{message}}
+      <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+    </div>
+  
+    <button (click)="openAddPokemon()" *ngIf="!showPokemonForm" 
+    class="btn btn-lg btn-outline-primary">Add Pokemon</button>
+  
+    <button (click)="openEditPokemon()" *ngIf="!showPokemonForm" [disabled]="!currentPokemon"
+      class="btn btn-lg btn-outline-primary">Edit Pokemon</button>
+  
+    <button (click)="deletePokemon()" *ngIf="!showPokemonForm" [disabled]="!currentPokemon"
+      class="btn btn-lg btn-outline-danger">Delete Pokemon}</button>
+  
+    <app-pokemon-form *ngIf="showPokemonForm" (newPokemonEvent)="addNewPokemon($event)" 
+    (pokemonFormClose)="pokemonFormClose($event)"
+      [pokemon]="currentPokemon"></app-pokemon-form>
+  
+    <div *ngIf="!showPokemonForm">
+      <app-pokemon-row class="card" *ngFor="let b of pokemonList" [pokemon]="b" (click)='clicked(b)'
+        [class.bg-info]="isSelected(b)" [class.text-white]="isSelected(b)">
+      </app-pokemon-row>
+    </div>
+  
+    <app-pokemon-details *ngIf="currentPokemon!" [pokemon]="currentPokemon">
+  
+    </app-pokemon-details>  
+  
+  
+  
+  </div>

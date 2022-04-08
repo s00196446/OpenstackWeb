@@ -15,11 +15,35 @@ export class PokemonService {
   getPokemons(): Observable<IPokemon[]>{
     console.log("getPokemons is called");
 
-    return this.http.get<IPokemon[]>(`this.dataUri}?limit=5`)
+    return this.http.get<IPokemon[]>(`${this.dataUri}?limit=5`)
     .pipe(
       catchError(this.handleError)
     )
   }
+
+  addPokemon(pokemon: IPokemon): Observable<IPokemon>{
+    return this.http.post<IPokemon>(this.dataUri,pokemon)
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  updatePokemon(id: string, pokemon: IPokemon): Observable<IPokemon> {
+    console.log('subscribing to update' + id);
+    let pokemonURI: string = this.dataUri + '/' + id;
+    return this.http.put<IPokemon>(pokemonURI, pokemon)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  deletePokemon(id: string): Observable<unknown> {
+    const url = `${this.dataUri}/${id}`; // DELETE 
+    return this.http.delete(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }  
 
   private handleError(error: HttpErrorResponse){
     if (error.error instanceof ErrorEvent) {
