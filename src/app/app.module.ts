@@ -21,7 +21,8 @@ import { PokemonFormComponent } from './pokemon2/pokemon-form/pokemon-form.compo
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

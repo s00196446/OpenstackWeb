@@ -2,7 +2,7 @@
 
 
     <div *ngIf="message" class="alert alert-warning alert-dismissible show" role="alert">
-      <strong>Opps</strong> {{message}}
+      <strong>Oops</strong> {{message}}
       <button type="button" class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
     </div>
   
@@ -13,11 +13,21 @@
       class="btn btn-lg btn-outline-primary">Edit Pokemon</button>
   
     <button (click)="deletePokemon()" *ngIf="!showPokemonForm" [disabled]="!currentPokemon"
-      class="btn btn-lg btn-outline-danger">Delete Pokemon}</button>
+      class="btn btn-lg btn-outline-danger">Delete Pokemon</button>
   
     <app-pokemon-form *ngIf="showPokemonForm" (newPokemonEvent)="addNewPokemon($event)" 
     (pokemonFormClose)="pokemonFormClose($event)"
       [pokemon]="currentPokemon"></app-pokemon-form>
+
+      <div class="container">
+        <div class="row">
+            <div class="col"> <h3>Name</h3> </div>
+            <div class="col"> <h3>Type</h3> </div>
+            <div class="col"> <h3>ID</h3></div>
+            <div class="col"> <h3>Generation</h3></div>
+            <div class="col"> <h3>Pokedex Number</h3></div>
+        </div>
+    </div>
   
     <div *ngIf="!showPokemonForm">
       <app-pokemon-row class="card" *ngFor="let b of pokemonList" [pokemon]="b" (click)='clicked(b)'

@@ -52,7 +52,7 @@ export class PokemonListComponent implements OnInit {
     this.showPokemonForm = true;
   }
 
-  addNewPokemon(newPokemon: IPokemon): void {
+  addNewPokemon(newPokemon: any): void {
     console.log('adding new pokemon ' + JSON.stringify(newPokemon));
     this.pokemonService.addPokemon({ ...newPokemon })
       .subscribe({
