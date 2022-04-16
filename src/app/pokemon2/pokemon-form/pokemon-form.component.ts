@@ -2,6 +2,8 @@ import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IPokemon } from 'src/app/pokemonmodel';
 
+
+
 @Component({
   selector: 'app-pokemon-form',
   templateUrl: './pokemon-form.component.html',
@@ -19,7 +21,7 @@ export class PokemonFormComponent implements OnInit {
   ngOnInit(): void {
 
     this.pokemonForm = new FormGroup({
-      Name: new FormControl(this.pokemon.Name,[Validators.required, Validators.minLength(3)]),
+      Name: new FormControl(this.pokemon.Name),
       Type: new FormControl(this.pokemon.Type, [Validators.required]),
       _id: new FormControl(this.pokemon._id, [Validators.required]),
       Generation: new FormControl(this.pokemon.Generation, [Validators.required]),

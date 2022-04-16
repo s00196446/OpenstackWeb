@@ -3,6 +3,8 @@ import { IPokemon } from './pokemonmodel';
 import { catchError, Observable,of,throwError } from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http'
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +13,8 @@ export class PokemonService {
   private dataUri = 'http://localhost:3000/pokemons'
 
   constructor(private http: HttpClient) { }
+
+ // pokemon:IPokemon = new IPokemon();
 
   getPokemons(): Observable<IPokemon[]>{
     console.log("getPokemons is called");
@@ -61,4 +65,5 @@ export class PokemonService {
       'Something bad happened; please try again later.');
     }
 
+    
 }
