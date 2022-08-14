@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { IPokemon } from 'src/app/pokemonmodel';
 
 
@@ -14,18 +14,18 @@ export class PokemonFormComponent implements OnInit {
   @Input() pokemon?:IPokemon;
   @Output() pokemonFormClose = new EventEmitter<IPokemon>();
   message: string = "";
-  pokemonForm? : FormGroup;
+  pokemonForm? : UntypedFormGroup;
 
   constructor() { }
 
   ngOnInit(): void {
 
-    this.pokemonForm = new FormGroup({
-      Name: new FormControl(this.pokemon.Name),
-      Type: new FormControl(this.pokemon.Type, [Validators.required]),
-      _id: new FormControl(this.pokemon._id, [Validators.required]),
-      Generation: new FormControl(this.pokemon.Generation, [Validators.required]),
-      PokedexNo: new FormControl(this.pokemon.PokedexNo, [Validators.required])
+    this.pokemonForm = new UntypedFormGroup({
+      Name: new UntypedFormControl(this.pokemon.Name),
+      Type: new UntypedFormControl(this.pokemon.Type, [Validators.required]),
+      _id: new UntypedFormControl(this.pokemon._id, [Validators.required]),
+      Generation: new UntypedFormControl(this.pokemon.Generation, [Validators.required]),
+      PokedexNo: new UntypedFormControl(this.pokemon.PokedexNo, [Validators.required])
     })
   }
 
