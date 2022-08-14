@@ -19,19 +19,19 @@
     <label for="Type" class="form-label">Type</label>
     <input id="Type" type="text" formControlName="Type" class="form-control">
 </div>
-<!-- <div class="mb-3">
+<div class="mb-3">
     <label for="_id" class="form-label">ID</label>
     <input id="_id" type="number" formControlName="_id" class="form-control">
-</div> -->
+</div>
 
 <button type="submit" [disabled]= "!pokemonForm?.valid" class="btn btn-primary" >Submit</button>
 
-<!-- <div *ngIf="Name?.invalid && Generation?.touched"  class="alert alert-danger" >
+<div *ngIf="Name?.invalid && Generation?.touched"  class="alert alert-danger" >
     Title is required and must be more than 3 characters
 </div>
 <div *ngIf="Name?.invalid && Generation?.touched"  class="alert alert-danger" >
     Please Fill In Details
-</div> -->
+</div>
 
 
 </form>
