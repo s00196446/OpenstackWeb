@@ -14,7 +14,7 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
- // pokemon:IPokemon = new IPokemon();
+  // pokemon:IPokemon = new IPokemon();
 
   getPokemons(): Observable<IPokemon[]>{
     console.log("getPokemons is called");
