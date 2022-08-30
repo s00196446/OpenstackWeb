@@ -9,6 +9,7 @@ import { IUser, CognitoService } from '../cognito.service';
 })
 export class ProfileComponent implements OnInit {
 
+  showForm=true;
   loading: boolean;
   user: IUser;
 

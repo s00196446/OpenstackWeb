@@ -10,6 +10,8 @@ import { IUser, CognitoService } from '../cognito.service';
 })
 export class SignInComponent {
 
+  showForm=true;
+
   loading: boolean;
   user: IUser;
 
